@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+<html>
+<head>
+       
+
+       
+</head>
+<body>
+{% block content %}
+   <!-- Loader Start -->
+    <div id="preloader">
+        <div class="preloader-container">
+            <div class="sk-folding-cube">                
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>                
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+            </div>
+        </div>
+    </div>
+    <!-- End Loader Start -->
+
+    <!-- Page Parallax Header -->
+    <div class="ws-parallax-header parallax-window"  data-parallax="position:fixed">   <img src="/static/images/rosegarden.jpg"  display="block" width="100%" height="70%">   
+        <div class="ws-overlay">            
+            <div class="ws-parallax-caption">                
+                <div class="ws-parallax-holder">
+                    <h1>Print Store</h1>                        
+                </div>
+            </div>
+        </div>            
+    </div>            
+    <!-- End Page Parallax Header -->
+
+    <!-- Page Content -->
+    <div class="container ws-page-container">
+        <div class="row">            
+            <div class="ws-shop-page">                
+                <!-- Categories Nav -->           
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a></li>
+                    <li role="presentation"><a href="#roses" aria-controls="prints" role="tab" data-toggle="tab">Roses</a></li>
+                    <li role="presentation"><a href="#summer" aria-controls="illustrated" role="tab" data-toggle="tab">Summer</a></li>
+                    <li role="presentation"><a href="#spring" aria-controls="journals" role="tab" data-toggle="tab">Spring</a></li>
+                    <li role="presentation"><a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">Flowers</a></li>                    
+                </ul>
+                
+                <!-- Categories Content --> 
+                {% for design in designs %}          
+                <div class="tab-content">
+                    
+                    <!-- All -->
+                    <div role="tabpanel" class="tab-pane fade in active" id="all"> 
+                          
+
+                        <!-- Item -->
+                        <div class="col-sm-6 col-md-4 ws-works-item">
+                            
+                            <a href="{% url 'product_options' design.id %}">                       
+                                <div class="ws-item-offer {{design.tag}}">
+                                    <!-- Image -->                        
+                                    <figure>                            
+                                        <img src="{{ MEDIA_URL }}{{ design.image }}" alt="Alternative Text" class="img-responsive">
+                                    </figure>                    
+                                </div>
+
+                                <div class="ws-works-caption text-center">
+                                    <!-- Item Category -->
+                                    <div class="ws-item-category">"{{ design.tag}}"</div>
+
+                                    <!-- Title -->
+                                    <h3 class="ws-item-title">"{{ design.name}}"</h3>                        
+
+                                    <div class="ws-item-separator"></div>    
+
+                                    <!-- Price -->
+                                    <div class="ws-item-price"><del>$50.00</del> <ins>$25.00</ins></div>                                                    
+                                
+                                </div>
+                           </a>
+                        </div>
+                       
+                    </div>
+                 {% endfor %}
+
+
+   
+
+    
+    <!-- Subscribe Section -->
+    <section class="ws-subscribe-section">
+        <div class="container">
+            <div class="row">
+                <!-- Subscribe Content -->
+                <div class="ws-subscribe-content text-center clearfix">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <h3>Sign up for the newsletter</h3>       
+                        <div class="ws-separator"></div>                             
+                        <!-- Form -->
+                        <form class="form-inline">                            
+                            <div class="form-group">                                
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                            </div>   
+                            <!-- Button -->                         
+                            <a class="btn ws-btn-subscribe">Subscribe</a>                                 
+                        </form>
+                    </div>                
+                </div>
+            </div>          
+        </div>
+    </section>
+    <!-- End Subscribe Section -->   
+
+{% endblock content %} 
+    
+    </body>
+</html>

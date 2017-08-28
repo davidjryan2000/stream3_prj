@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+ 
+
+{% block content %}
+
+<!-- Page Parallax Header -->
+<div class="ws-parallax-header parallax-window"  data-parallax="position:fixed">   <img src="/static/images/rosegarden.jpg"  display="block" width="100%" height="50%">       
+        <div class="ws-overlay">            
+            <div class="ws-parallax-caption">                
+                <div class="ws-parallax-holder">
+                    <h1>Mailo's Blog</h1>                        
+                </div>
+            </div>
+        </div>            
+    </div>            
+    <!-- End Page Parallax Header -->
+
+    
+
+               
+
+
+ 
+    {% for post in posts %}
+        <div class="row">
+            <hr>
+            <div class="col-md-2 col-sm-3 text-center">
+                <a class="story-img" href="#">
+                    <img src="{{MEDIA_URL}}{{ post.image}}" style="width:100px; height: 100px; background-color: #12ABB2; color: #ffffff;" class="img-circle">
+                </a>
+            </div>
+            <div class="col-md-10 col-sm-9">
+                <h3>{{ post.title|truncatewords:30 }}</h3>
+                <div class="row">
+                    <div class="col-xs-9">
+                        <p>{{ post.content|truncatewords:50 }}</p>
+                        <p><button class="btn btn-default" onclick="location.href='{% url 'view_post' post.id %}'">Read More</button>
+                        <button class="btn btn-default" onclick="location.href='{% url 'new_post' %}'">New Post</button></p>
+                        <P>{{ post.published_date }} | <strong>Views</strong> {{ post.views }} | <strong>Tag</strong> {{ post.tag }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <br>
+    <br>
+    <br>
+{% endblock %}

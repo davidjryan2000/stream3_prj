@@ -10,7 +10,8 @@ from .forms import UserRegistrationForm, UserLoginForm, SubscribeForm
 
 
 
-@login_required(login_url='/accounts/login')á
+
+@login_required(login_url='/accounts/login')
 def profile(request):
     return render(request, 'profile.html')
 
@@ -72,5 +73,3 @@ def register(request):
     args.update(csrf(request))
 
     return render(request, 'register.html', args)
-
-
