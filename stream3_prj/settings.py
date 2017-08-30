@@ -66,7 +66,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'dave_e_commerce.urls'
+ROOT_URLCONF = 'stream3_prj.urls'
 
 TEMPLATES = [
     {
@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dave_e_commerce.wsgi.application'
+WSGI_APPLICATION = 'stream3_prj.wsgi.application'
 
 
 # Database
@@ -146,3 +146,6 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+DISQUS_WEBSITE_SHORTNAME =  os.environ.get("DISQUS_SHORTNAME")
+SITE_ID = 1
