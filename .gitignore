@@ -1,0 +1,5 @@
+__pyche__
+*.sqlite3
+.vscode
+media
+env.sh
