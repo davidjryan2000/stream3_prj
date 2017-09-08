@@ -1,5 +1,5 @@
 """
-WSGI config for dave_e_commerce project.
+WSGI config for stream3_prj project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
