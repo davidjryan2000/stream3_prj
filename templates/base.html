@@ -76,7 +76,7 @@
 
         <div class="pull-right">  
 
-            <!-- Shop Menu -->   
+            {% comment %}<!-- Shop Menu -->   
             <ul class="ws-shop-menu">
 
                 <!-- Account -->
@@ -155,7 +155,7 @@
                         </div>
                     </div>    
                     <!-- End Cart Popover -->
-
+{% endcomment %}
                 </li>    
             </ul>     
         </div>
@@ -177,14 +177,11 @@
                     </button>                    
                 </div>
 
-                <!-- Logo -->        
-                <!--<div class="ws-logo ws-center">
-                    <a href="index.html">-->
+                
                       <div class="logo ws-center">  
                         <h2> Mailo Power <h2>
                       </div>      
-                       <!-- <img src="/static/assets/img/logo-white.png" alt="Alternative Text" class="img-responsive">-->
-                   <!-- </a>-->
+                       
                 </div>
         
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -192,10 +189,7 @@
                         <li class="dropdown">
                             <a href="/" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn">Home <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/">Home</a></li>                                
-                                <!--<li><a href="slider-fullwidth.html">Slider FullWidth</a></li>
-                                <li><a href="slider-fullscreen.html">Slider FullScreen</a></li>
-                                <li><a href="3d-parallax.html">3D Parallax Hero</a></li>  -->                                                        
+                                <li><a href="/">Home</a></li>                                                                                     
                             </ul>
                         </li>
                         <li><a href="{% url 'blog' %}">Blog</a></li>
@@ -203,28 +197,21 @@
                             <a href="{% url 'gallery' %}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn">Shop <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{% url 'gallery' %}">Print Store</a></li>
-                                <li><a href="single-product.html">Single Product</a></li>
-                                <li><a href="{% url 'cart' %}">Shopping Cart</a></li>
-                                <li><a href="{% url 'register' %}">My Account / Register</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
+                                
                             </ul>
                         </li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">                            
-                        <li class="dropdown">
-                            <a href="#x" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn">Pages <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                               <li><a href="index.html">Header Style 1</a></li>                                                            
-                                <li><a href="second-header.html">Header Style 2</a></li>                            
-                                <li><a href="third-header.html">Header Style 3</a></li>                          
-                                <li><a href="faq.html#shipping">Shipping &amp; Return</a></li>
-                                <li><a href="faq.html#privacy">Privacy Policy</a></li>
-                                <li><a href="faq.html">F.A.Q</a></li>                            
-                            </ul>
-                        </li>   
-                        <li><a href="journal.html">Journal</a></li>        
-                        <li><a href="contact.html">Contact</a></li>                      
+                        
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' %}"></i> Profile</a></li>
+                        <li><a href="{% url 'logout' %}"></i> Log Out</a></li>
+                         {%  else %}
+                        <li><a href="{% url 'register' %}"></i> Register</a></li>
+                        <li><a href="{% url 'login' %}"></i> Log In</a></li>
+                         {% endif %}   
+                                          
                     </ul> 
                 </div>
             </div>
@@ -247,7 +234,7 @@
                     <h3>About Us</h3>
                     <div class="ws-footer-separator"></div>                                         
                     <div class="ws-footer-about">
-                        <p>Mailo Power is an Artist, Interior Designer and Hotelier from Waterford City in Ireland. </p>
+                        <p>We are a family of creators – close knit and a little crazy – handcrafting goods at our workshop New York, USA. We make beautiful products from quality materials because believe each one is a representation of who we are close.</p>
                     </div>
                 </div>
 

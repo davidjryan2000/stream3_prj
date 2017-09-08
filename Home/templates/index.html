@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+ {% extends 'base.html' %}
 {% block content %}
 {% load static from staticfiles %}
 {% block head_css %}<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">{% endblock %}
@@ -155,164 +155,7 @@
     </section>
     <!-- About Section End -->     
 
-    {% comment %}<!-- New Arrivals Section -->    
-    <section class="ws-arrivals-section">
-
-        <div class="ws-works-title clearfix">
-            <div class="col-sm-12">
-                <h3>New Arrivals</h3> 
-                <div class="ws-separator"></div>   
-            </div>
-        </div>        
-
-        <div id="ws-items-carousel">
-
-            <!-- Item -->
-            <div class="ws-works-item" data-sr='wait 0.1s, ease-in 20px'>
-                <a href="#">                        
-                    <div class="ws-item-offer">
-                        <!-- Image -->                        
-                        <figure>                            
-                            <img src="static/assets/img/works/abstract/5.jpg" alt="Alternative Text" class="img-responsive">
-                        </figure>                    
-                    </div>
-
-                    <div class="ws-works-caption text-center">
-                        <!-- Item Category -->
-                        <div class="ws-item-category">Abstract Prints</div>
-
-                        <!-- Title -->
-                        <h3 class="ws-item-title">Pinning Moon</h3>                        
-
-                        <div class="ws-item-separator"></div>    
-
-                        <!-- Price -->
-                        <div class="ws-item-price"><del>$50.00</del> <ins>$25.00</ins></div>                                                    
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item -->
-            <div class="ws-works-item" data-sr='wait 0.3s, ease-in 20px'>
-                <a href="#">
-                    <!-- Image -->                        
-                    <figure>                            
-                        <img src="static/assets/img/works/illustrated/4.jpg" alt="Alternative Text" class="img-responsive">
-                    </figure>
-                    <div class="ws-works-caption text-center">
-                        <!-- Item Category -->
-                        <div class="ws-item-category">Illustrated Prints</div>
-
-                        <!-- Title -->
-                        <h3 class="ws-item-title">Arkose Factor</h3>                        
-
-                        <div class="ws-item-separator"></div>    
-
-                        <!-- Price -->
-                        <div class="ws-item-price">$150.00</div>                        
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item -->
-            <div class="ws-works-item" data-sr='wait 0.5s, ease-in 20px'>
-                <a href="#">
-                    <!-- Image -->                        
-                    <figure>                            
-                        <img src="static/assets/img/works/abstract/6.jpg" alt="Alternative Text" class="img-responsive">                
-                    </figure>
-                    <div class="ws-works-caption text-center">
-                        <!-- Item Category -->
-                        <div class="ws-item-category">Abstract Prints</div>
-
-                        <!-- Title -->
-                        <h3 class="ws-item-title">Interstellar</h3>                        
-
-                        <div class="ws-item-separator"></div>    
-
-                        <!-- Price -->
-                        <div class="ws-item-price">$75.00</div>                        
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item -->        
-            <div class="ws-works-item" data-sr='wait 0.7s, ease-in 20px'>
-                <a href="#">
-                    <div class="ws-item-offer">
-                        <!-- Image -->                        
-                        <figure>                            
-                            <img src="static/assets/img/works/journals/3.jpg" alt="Alternative Text" class="img-responsive">
-                        </figure>                    
-                    </div>
-                    <div class="ws-works-caption text-center">
-                        <!-- Item Category -->
-                        <div class="ws-item-category">Journal</div>
-
-                        <!-- Title -->
-                        <h3 class="ws-item-title">Rubby Hubby</h3>                        
-
-                        <div class="ws-item-separator"></div>    
-
-                        <!-- Price -->
-                        <div class="ws-item-price">$53.00</div>                        
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item -->
-            <div class="ws-works-item"> 
-                <a href="#">                        
-                    <div class="ws-item-offer">
-                        <!-- Image -->                        
-                        <figure>                            
-                            <img src="static/assets/img/works/abstract/7.jpg" alt="Alternative Text" class="img-responsive">
-                        </figure>                    
-                    </div>
-
-                    <div class="ws-works-caption text-center">
-                        <!-- Item Category -->
-                        <div class="ws-item-category">Abstract Prints</div>
-
-                        <!-- Title -->
-                        <h3 class="ws-item-title">Pinning Moon</h3>                        
-
-                        <div class="ws-item-separator"></div>    
-
-                        <!-- Price -->
-                        <div class="ws-item-price"><del>$50.00</del> <ins>$25.00</ins></div>                                                    
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item -->
-            <div class="ws-works-item">
-                <a href="#">                        
-                    <div class="ws-item-offer">
-                        <!-- Image -->                        
-                        <figure>                            
-                            <img src="static/assets/img/works/journals/4.jpg" alt="Alternative Text" class="img-responsive">
-                        </figure>                    
-                    </div>
-
-                    <div class="ws-works-caption text-center">
-                        <!-- Item Category -->
-                        <div class="ws-item-category">Abstract Prints</div>
-
-                        <!-- Title -->
-                        <h3 class="ws-item-title">Pinning Moon</h3>                        
-
-                        <div class="ws-item-separator"></div>    
-
-                        <!-- Price -->
-                        <div class="ws-item-price"><del>$50.00</del> <ins>$25.00</ins></div>                                                    
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- End New Arrivals Section -->     
-{% endcomment %}
+    
     <!-- Work Collection Start  -->
     <section class="ws-works-section">
         <div class="container">
@@ -472,7 +315,7 @@
                 </div>                                                                       
 
  
-                <!-- Item -->
+               {% comment %} <!-- Item -->
                 <div class="col-sm-6 col-md-4 ws-works-item" data-sr='wait 0.1s, ease-in 20px'>
                     <a href="#">
                         <div class="ws-item-offer">
@@ -498,10 +341,10 @@
                             <div class="ws-item-price"><del>$23.00</del> <ins>$10.00</ins></div>                        
                         </div>
                     </a>
-                </div>
+                </div>{% endcomment %}
 
                 <!-- Item -->
-                <div class="col-sm-6 col-md-4 ws-works-item" data-sr='wait 0.3s, ease-in 20px'>
+                {% comment %}<div class="col-sm-6 col-md-4 ws-works-item" data-sr='wait 0.3s, ease-in 20px'>
                     <a href="#">
                         <!-- Image -->                        
                         <figure>                            
@@ -521,9 +364,9 @@
                         </div>
                     </a>
                 </div>     
-
+{% endcomment %}
                 <!-- Item -->
-                <div class="col-sm-6 col-md-4 ws-works-item" data-sr='wait 0.5s, ease-in 20px'>
+                {% comment %}<div class="col-sm-6 col-md-4 ws-works-item" data-sr='wait 0.5s, ease-in 20px'>
                     <a href="#">
                         <!-- Image -->                        
                         <figure>                            
@@ -543,7 +386,7 @@
                         </div>
                     </a>
                 </div>          
-
+{% endcomment %}
             </div>
         </div>
     </section>
@@ -551,22 +394,22 @@
     <!-- Work Collection End  -->
 
     <!-- Call to Action Section -->
-    <section class="ws-call-section">
+    {% comment %}<section class="ws-call-section">
         <div class="ws-overlay">            
             <div class="ws-parallax-caption">                
                 <div class="ws-parallax-holder">
                     <div class="col-sm-6 col-sm-offset-3">
-                        <h2>JOURNAL</h2>         
+                        {% comment %}<h2>JOURNAL</h2>         
                         <div class="ws-separator"></div>                                                                          
                         <p>Our blog covering interesting stories around culture and design.<br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
                         <div class="ws-call-btn">
-                            <a href="#" >Show all journal items</a>
-                        </div>
+                            <a href="#" >Show all journal items</a>{% endcomment %}
+                 {% comment %}       </div>
                     </div>
                 </div>
             </div>            
         </div>
-    </section>
+    </section>{% endcomment %}
     <!-- End Call to Action Section -->  
 
     <!-- Instagram Content -->
@@ -579,29 +422,31 @@
                     <div class="ws-instagram-header">
                         <h3>Instagram</h3>     
                         <br>                   
-                        <a href="https://www.instagram.com/" target="_blank" class="ws-instagram-link"> @artday</a>                         
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+                        <a href="https://www.instagram.com/" target="_blank" class="ws-instagram-link"> @mailopower</a>                         
+                        <p>Why not follow Mailo on Instagram?!</p>
                     </div>
                 </div>
 
                 <!-- Instagram Item -->
                 <div class="col-sm-3 ws-instagram-item" data-sr='wait 0.1s, ease-in 20px'>
-                    <a href="https://www.instagram.com/" target="_blank">
+                    <a><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:59.21296296296297% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BYg6UkvnO7s/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Stunning #rose from &#34;The Flower Shop&#34; #Ferrybank #roses #inspiredbynature #flowers</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by @mailopower on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-09-01T21:55:01+00:00">Sep 1, 2017 at 2:55pm PDT</time></p></div></blockquote>
+                    <script async defer src="//platform.instagram.com/en_US/embeds.js"></script></a>
+                    {% comment %}<a href="https://www.instagram.com/p/BU2xWpvlAt2/" target="_blank">
                         <img src="{% static 'assets/img/journal/1.jpg' %}" alt="1.jpg" class="img-responsive">
-                    </a>
+                    </a>{% endcomment %}
                 </div>    
 
-                <!-- Instagram Item -->
+                {% comment %}<!-- Instagram Item -->
                 <div class="col-sm-3 ws-instagram-item" data-sr='wait 0.3s, ease-in 20px'>
-                    <a href="https://www.instagram.com/" target="_blank">
-                        <img src="{% static 'assets/img/journal/4.jpg' %}" alt="4.jpg" class="img-responsive">
+                    <a><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.421711899791234% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BWfmR32g0Ol/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Great honour to be included in #HotelDesigns #BritList2017 of Influential &amp; Inspirational Individuals in #Hotels &amp; #InteriorDesign in the #UK and #Ireland Great night at the #BritList2017 event #UrbanCoterie #mbymontcalm #London Good to catch up with Daniel Fountain editor of HotelDesigns event last night.</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by @mailopower on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-07-13T16:37:52+00:00">Jul 13, 2017 at 9:37am PDT</time></p></div></blockquote>
+                    <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
                     </a>
-                </div>   
+                </div>  {% endcomment %} 
 
                 <!-- Instagram Item -->
                 <div class="col-sm-3 ws-instagram-item" data-sr='wait 0.5s, ease-in 20px'>
-                    <a href="https://www.instagram.com/" target="_blank">
-                        <img src="{% static 'assets/img/journal/8.jpg' %}" alt="8.jpg" class="img-responsive">
+                    <a> <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:62.5% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BVws8pVAbPx/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">#joyofnature @mountcongreve #gardens #visitWaterford @irelandsancienteast #gardens #Summer #inspiredbynature</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by @mailopower on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-06-25T11:31:50+00:00">Jun 25, 2017 at 4:31am PDT</time></p></div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
                     </a>
                 </div>                                   
             </div>

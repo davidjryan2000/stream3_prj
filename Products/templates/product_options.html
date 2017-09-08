@@ -4,7 +4,17 @@
 
 {% block content %}
 
-
+<!-- Page Parallax Header -->
+<div class="ws-parallax-header parallax-window"  data-parallax="position:fixed">   <img src="/static/images/rosegarden.jpg"  display="block" width="100%" height="50%">       
+        <div class="ws-overlay">            
+            <div class="ws-parallax-caption">                
+                <div class="ws-parallax-holder">
+                    <h1>Product Details</h1>                        
+                </div>
+            </div>
+        </div>            
+    </div>            
+    <!-- End Page Parallax Header -->
 
    
 
@@ -30,12 +40,7 @@
                     <div class="item">
                         <img src="{{ MEDIA_URL }}{{ design.image }}" class="img-responsive" alt="Alternative Text">
                     </div>
-                    <!--<div class="item">
-                        <img src="/static/assets/img/works/single-product/3.jpg" class="img-responsive" alt="Alternative Text">
-                    </div>   
-                    <div class="item">
-                        <img src="/static/assets/img/works/single-product/2.jpg" class="img-responsive" alt="Alternative Text">
-                    </div>        -->
+                    
                 </div>
             </div>
             
@@ -67,12 +72,12 @@
                             </div>
                             </div> 
 
-                        <!-- Quantity -->
+                        {% comment %}<!-- Quantity -->
                         <div class="ws-product-quantity">
                             <a href="#" class="minus">-</a>
                                 <input type="text" value="1" size="4">
                             <a href="#" class="plus">+</a>
-                        </div>       
+                        </div>    {% endcomment %}   
                     </header>
                     
                     <div class="ws-product-details">
@@ -121,7 +126,7 @@
        
 
     <!-- Related Post -->
-    <div class="ws-related-section">
+    {% comment %}<div class="ws-related-section">
         <div class="container">
 
             <!-- Title -->
@@ -176,8 +181,8 @@
                     </a>
                 </div>
             </div>
-
-            <div class="col-sm-4">
+{% endcomment %}
+            {% comment %}<div class="col-sm-4">
                 <!-- Item -->
                 <div class="ws-works-item">
                     <a href="#">
@@ -202,13 +207,13 @@
             </div>
 
         </div>
-    </div>
+    </div>{% endcomment %}
     <!-- End Related Post -->
     
     
     
     <!-- Subscribe Section -->
-    <section class="ws-subscribe-section">
+    {% comment %}<section class="ws-subscribe-section">
         <div class="container">
             <div class="row">
                 <!-- Subscribe Content -->
@@ -228,7 +233,7 @@
                 </div>
             </div>          
         </div>
-    </section>
+    </section>{% endcomment %}
     <!-- End Subscribe Section -->   
 
 
