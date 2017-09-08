@@ -15,7 +15,7 @@ from django.contrib.auth.models import User
 
 
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = settings.STRIPE_SECRET
 
 
 
