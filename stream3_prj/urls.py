@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from Home.views import get_index
 from Accounts import urls as accounts_urls
-from Accounts import reset_urls as reset_urls
+#from Accounts import reset_urls as reset_urls
 from Products import urls as products_urls
 from django.views import static
 from .settings import MEDIA_ROOT
