@@ -22,8 +22,8 @@ def buy_now(request, id):
                     description=product.name,
                     card=form.cleaned_data['stripe_id'],
                 )
-            except (stripe.error.CardError, e):
-                messages.error(request, "Your card was declined!")
+            '''except (stripe.error.CardError,e):
+                messages.error(request, "Your card was declined!")'''
 
             if customer.paid:
                 messages.success(request, "You have successfully paid")
