@@ -95,3 +95,6 @@ def adjust_cart(request, id):
         cartItem.delete()
     return redirect(reverse('cart'))
 
+def checkout(request):
+    return render(request, 'checkout.html')
+

@@ -26,87 +26,110 @@
     </div>            
     <!-- End Page Parallax Header -->
 
+    <!-- Page Content -->
+    <div class="container ws-page-container">
+        <div class="row">                                                                 
 
+            <!-- Cart Content -->
+            <div class="ws-cart-page">
+                <div class="col-sm-8">
+                    <div class="ws-mycart-content">                
+                        <table class="table"> 
+                            <thead>
+                                <tr>
+                                    <th class="cart-item-head"></th>
+                                    <th class="cart-item-head">Name</th> 
+                                    <th class="cart-item-head">Order</th> 
+                                    <th class="cart-item-head">Price</th> 
+                                    <th class="cart-item-head">Quantity</th>
+                                    <th class="cart-item-head">Total</th>
 
-{% comment %}<div id="container">{% endcomment %}
+                            <tbody>
+                                {% for item in items %}
+                                <tr class="cart-item"> 
+                                    <td class="cart-item-cell cart-item-thumb">                                
+                                        <a href="#">
+                                            <img height="100" width="100" src="{{ MEDIA_URL }}{{ item.design.image }}">
+                                        </a>                                                                   
+                                    </td>
+                                    <td class="cart-item-cell cart-item-title">                                                               
+                                       {{ item.design.name }}                                  
+                                    </td>
+                                    <td class="cart-item-cell cart-item-title">                                                               
+                                       {{ item.medium }}                                 
+                                    </td>                                                                 
+                                    <td class="cart-item-cell cart-item-price">                                
+                                        <span class="amount">{{ item.medium.price }}</span>                                
+                                    </td> 
+                                    <td class="cart-item-cell cart-item-quantity">                                
+                                        <input type="number" value= {{ item.quantity }}>                                
+                                    </td> 
+                                  {% comment %}  <td class="cart-item-cell cart-item-subtotal">                                
+                                        <span class="amount"> {{ total }} </span>                                
+                                    </td>{% endcomment %}
+                                     <td class="cart-item-cell cart-item-remove">                                
+                                        <span><a href="#x"><i class="fa fa-times"></i></a></span>                            
+                                    </td> 
+                                </tr> 
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Order</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for item in items %}
-            <tr>
-                <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ item.design.image }}"></td>
-                <td>{{ item.design.name }}</td>
-                <td>{{ item.design.description }}</td>
-                <td>{{ item.medium }}</td>
-                <td>{{ item.medium.price }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>
-                    <form method="post" action="{% url 'adjust_cart' item.id %}">
-                        {% csrf_token %}
-                        Quantity
-                        <input name='quantity' type="number" min="0" max="999">
-                        <button type="submit">Adjust</button>
-                    </form>
+                                
+                                 {% endfor %}
 
-                </td>
-            </tr>
-        {% endfor %}
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>{{ total }}</td>
-            <td></td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
+                                <tr>
+                                    <td colspan="6">
+                                        <!-- Coupon -->
+                                        <div class="ws-coupon-code">                                        
+                                            <form class="form-inline">                            
+                                                <div class="form-group">                                
+                                                    <input type="text" placeholder="Coupon code">
+                                                </div>   
+                                                <!-- Button -->                         
+                                                <a class="btn ws-small-btn-black">Apply Coupon</a>    
+                                            </form>                                                                
+                                        </div>
 
-    <hr>
+                                        <!-- Update Cart -->
+                                        <div class="ws-update-cart">                                        
+                                            <a class="btn ws-small-btn-black">Update Cart</a>                                              
+                                        </div>
+                                    </td>
+                                </tr>    
 
-     <form role="form" method="post" id="payment-form" action="{% url 'cart' %}">
-        <div id="credit-card-errors" style="display:none">
-            <div class="alert-message block-message error" id="stripe-error-message"></div>
-        </div>
+                            </tbody> 
+                        </table>                    
+                    </div>
+                </div>
+                                
 
-        <legend>Pay Now!</legend>
+                    <!-- Cart Total -->
+                    <div class="col-sm-4">
+                        <div class="ws-mycart-total">  
+                            <h2>Cart Totals</h2>                    
+                            <table>
+                                <tbody>
+                                    <tr class="cart-subtotal">
+                                        <th>Subtotal</th>
+                                        <td><span class="amount">{{ total }} </span></td>
+                                    </tr>
 
-        {% csrf_token %}
-        {{ form | as_bootstrap }}
-        <div class="form-group">
-            <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-        </div>
-    </form>
+                                    <tr class="shipping">
+                                        <th>Free Shipping</th>
+                                        <td><span class="amount">0.00</span></td>
+                                    </tr>                                
 
+                                    <tr class="order-total">
+                                        <th>Total</th>
+                                        <td><strong><span class="amount">{{ total }}</span></strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a  class="btn ws-btn-fullwidth" onclick="location.href='{% url 'checkout' %}';">Check Out</a>  
+                        </div>
+                    </div>  
+                </div>                
 
-{% comment %}<div id="payment-container">
-    <form role="form" method="post" id="payment-form" action="{% url 'cart' %}">
-        <fieldset>
-            <legend>Pay Now</legend>
-                <div id="credit-card-errors" style="display:none">
-                    <div class="alert-message block-message error" id="stripe-error-message"></div>
-                </div>      
-
-                {% csrf_token %}
-                {{ form | as_bootstrap_horizontal }}
-                <div class="form-group">
-                    <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-                     <button type="submit">Pay</button>
             </div>
-        </fieldset>
-    </form>
-    </div>
-</div>{% endcomment %}
-
-{% endblock %}
+        </div>
+                <!-- End Page Content -->
+    
+    {% endblock %}
