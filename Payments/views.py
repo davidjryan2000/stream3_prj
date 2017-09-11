@@ -26,7 +26,7 @@ def buy_now(request, id):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                messages.success(request, "You have successfully paid")
+                messages.success(request, "You have successfully paid, your product is on the way")
                 return redirect(reverse('products'))
             else:
                 messages.error(request, "Unable to take payment")
