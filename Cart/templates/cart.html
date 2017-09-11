@@ -28,7 +28,7 @@
 
 
 
-<div id="container">
+{% comment %}<div id="container">{% endcomment %}
 
     <table class="table table-striped">
         <thead>
@@ -75,26 +75,38 @@
 
     <hr>
 
+     <form role="form" method="post" id="payment-form" action="{% url 'cart' %}">
+        <div id="credit-card-errors" style="display:none">
+            <div class="alert-message block-message error" id="stripe-error-message"></div>
+        </div>
 
-   {% comment %} <div id="payment-container">{% endcomment %}
-        <form role="form" method="post" id="payment-form" action="{% url 'cart' %}">
-            {% comment %}<fieldset>{% endcomment %}
-                
-                    <div id="credit-card-errors" style="display:none">
-                        <div class="alert-message block-message error" id="stripe-error-message"></div>
-                    </div>      
+        <legend>Pay Now!</legend>
 
-                    <legend>Pay Now</legend>
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <div class="form-group">
+            <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+        </div>
+    </form>
 
-                    {% csrf_token %}
-                    {{ form | as_bootstrap_horizontal }}
-                    <div class="form-group">
-                        <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-                        {% comment %}<button type="submit">Pay</button>{% endcomment %}
-                    </div>
-           {% comment %} </fieldset>{% endcomment %}
-        </form>
-    {% comment %}</div>{% endcomment %}
-</div>
+
+{% comment %}<div id="payment-container">
+    <form role="form" method="post" id="payment-form" action="{% url 'cart' %}">
+        <fieldset>
+            <legend>Pay Now</legend>
+                <div id="credit-card-errors" style="display:none">
+                    <div class="alert-message block-message error" id="stripe-error-message"></div>
+                </div>      
+
+                {% csrf_token %}
+                {{ form | as_bootstrap_horizontal }}
+                <div class="form-group">
+                    <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                     <button type="submit">Pay</button>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+</div>{% endcomment %}
 
 {% endblock %}
