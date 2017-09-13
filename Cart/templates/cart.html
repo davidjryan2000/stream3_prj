@@ -42,7 +42,7 @@
                                     <th class="cart-item-head">Order</th> 
                                     <th class="cart-item-head">Price</th> 
                                     <th class="cart-item-head">Quantity</th>
-                                    <th class="cart-item-head">Total</th>
+                                    <th class="cart-item-head">Action</th>
 
                             <tbody>
                                 {% for item in items %}
@@ -61,46 +61,35 @@
                                     <td class="cart-item-cell cart-item-price">                                
                                         <span class="amount">{{ item.medium.price }}</span>                                
                                     </td> 
-                                    <td class="cart-item-cell cart-item-quantity">                                
+                                    <!--<td class="cart-item-cell cart-item-quantity">                                
                                         <input type="number" value= {{ item.quantity }}>                                
-                                    </td> 
+                                    </td> -->
                                   {% comment %}  <td class="cart-item-cell cart-item-subtotal">                                
                                         <span class="amount"> {{ total }} </span>                                
                                     </td>{% endcomment %}
-                                     <td class="cart-item-cell cart-item-remove">                                
-                                        <span><a href="#x"><i class="fa fa-times"></i></a></span>                            
-                                    </td> 
+                                     <td class="cart-item-cell cart-item-price">  
+                                        <form method="post" action="{% url 'adjust_cart' item.id %}">
+                                            {% csrf_token %}
+                                            <!--Quantity-->
+                                            <input name='quantity' type="number" min="0" max="999">
+                                            <td class="cart-item-cell cart-item-price">
+                                                <button type="submit" class="btn ws-small-btn-black">Update</button></td>
+                                        </form>
+
+                                    </td>
                                 </tr> 
 
                                 
                                  {% endfor %}
 
-                                <tr>
-                                    <td colspan="6">
-                                        <!-- Coupon -->
-                                        <div class="ws-coupon-code">                                        
-                                            <form class="form-inline">                            
-                                                <div class="form-group">                                
-                                                    <input type="text" placeholder="Coupon code">
-                                                </div>   
-                                                <!-- Button -->                         
-                                                <a class="btn ws-small-btn-black">Apply Coupon</a>    
-                                            </form>                                                                
-                                        </div>
-
-                                        <!-- Update Cart -->
-                                        <div class="ws-update-cart">                                        
-                                            <a class="btn ws-small-btn-black">Update Cart</a>                                              
-                                        </div>
-                                    </td>
-                                </tr>    
-
+                                
                             </tbody> 
                         </table>                    
                     </div>
                 </div>
                                 
-
+                
+    
                     <!-- Cart Total -->
                     <div class="col-sm-4">
                         <div class="ws-mycart-total">  
@@ -123,13 +112,123 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <a  class="btn ws-btn-fullwidth" onclick="location.href='{% url 'checkout' %}';">Check Out</a>  
+                           {% comment %} <a  class="btn ws-btn-fullwidth" onclick="location.href='{% url 'checkout' %}';">Check Out</a> {% endcomment %} 
                         </div>
                     </div>  
-                </div>                
+                </div> 
+
+               <div class="ws-checkout-content clearfix col-sm-12">             
+
+                <!-- Cart Content -->
+                <div class="col-sm-7">
+
+                    <!-- Billing Details -->
+                    <div class="ws-checkout-billing">
+                        <h3>Billing Details</h3>
+                        
+                        <!-- Form Inputs -->
+                        <form class="form-inline">        
+
+                            <!-- Name -->
+                            <div class="ws-checkout-first-row">
+                                <div class="col-no-p ws-checkout-input col-sm-6">                                 
+                                    <label>First Name <span> * </span></label><br>                          
+                                    <input type="text">                                
+                                </div>
+                                                                            
+                                <div class="col-no-p ws-checkout-input col-sm-6">                                
+                                    <label>Last Name <span> * </span></label><br>                          
+                                    <input type="text">                                
+                                </div> 
+                            </div>                                     
+
+                            <!-- Company -->
+                            <div class="col-no-p ws-checkout-input col-sm-12">                                
+                                <label>Company Name <span> * </span></label><br>                          
+                                <input type="text">                                
+                            </div>    
+
+                            <!-- Email -->
+                            <div class="ws-checkout-first-row">
+                                <div class="col-no-p ws-checkout-input col-sm-6">                                 
+                                    <label>Email Address <span> * </span></label><br>                          
+                                    <input type="email" placeholder="yourmail@gmail.com">                                
+                                </div>
+                                                                            
+                                <div class="col-no-p ws-checkout-input col-sm-6">                                
+                                    <label>Phone <span> * </span></label><br>                          
+                                    <input type="tel">                                
+                                </div>  
+                            </div>  
+
+                            <!-- Country -->
+                            <div class="col-no-p ws-checkout-input col-sm-12">                                
+                                <label>Country <span> * </span></label><br>                          
+                                <input type="text" placeholder="United States">                                      
+                            </div>    
+
+                            <!-- Address -->
+                            <div class="col-no-p ws-checkout-input col-sm-12">                                
+                                <label>Address <span> * </span></label><br>                          
+                                <input type="text" placeholder="Street adresss">                                      
+                            </div>  
+
+                            <div class="col-no-p ws-checkout-input col-sm-12">
+                                <input type="text" placeholder="Apartment, suite, unit etc.(optional)">                                      
+                            </div>
+
+                            <!-- Town -->
+                            <div class="col-no-p ws-checkout-input col-sm-12">                                
+                                <label>Town / City <span> * </span></label><br>                          
+                                <input type="text" placeholder="Town / City">                                      
+                            </div> 
+
+                            <!-- State -->
+                            <div class="ws-checkout-first-row">
+                                <div class="col-no-p ws-checkout-input col-sm-6">                                 
+                                    <label>State / Country <span> * </span></label><br>                          
+                                    <input type="text">                                
+                                </div>
+                                                                            
+                                <div class="col-no-p ws-checkout-input col-sm-6">                                
+                                    <label>Postcode / ZIP <span> * </span></label><br>                          
+                                    <input type="text" placeholder="Postcode / ZIP">                                
+                                </div>  
+                            </div>  
+
+                            <!-- Order Notes -->
+                            <div class="col-no-p ws-checkout-input col-sm-12">                                
+                                <label>Order Notes</label><br>                          
+                                <textarea placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
+                            </div>                                            
+                        </form>
+
+                    </div>
+                </div>      
+
+                <div class="col-sm-5">
+                            <div class="ws-checkout-order">     
+                                <form role="form" method="post" id="payment-form" action="{% url 'cart' %}">
+                                    <div id="credit-card-errors" style="display:none">
+                                        <div class="alert-message block-message error" id="stripe-error-message"></div>
+                                    </div>
+
+                                    <legend>Pay via Stripe </legend>
+
+                                    {% csrf_token %}
+                                    {{ form | as_bootstrap }}
+                                    <div class="form-group">
+                                        <input class="btn ws-small-btn-black" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>               
 
             </div>
         </div>
                 <!-- End Page Content -->
-    
-    {% endblock %}
+
+        
+
+        
+{% endblock %}
