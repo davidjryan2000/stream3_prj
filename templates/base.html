@@ -73,16 +73,16 @@
                 <p>Free Shipping on orders over <span>€50 in Ireland & UK</span></p> 
             </div>
         </div>
-{% comment %}
+
         <div class="pull-right">  
 
             <!-- Shop Menu -->   
             <ul class="ws-shop-menu">
 
                 <!-- Account -->
-                <li class="ws-shop-account">
+                <!--<li class="ws-shop-account">
                     <a href="my-account.html" class="btn btn-sm">My Account</a>
-                </li>
+                </li>-->
                             
                 <!-- Cart -->
                 <li class="ws-shop-cart">
@@ -111,7 +111,7 @@
                                     
                                     <div class="minicart-content-details media-body"><h3><a href="#">{{ item.design.name }}</a></h3>
                                         <!-- Title -->
-                                       {% comment %} <h3><a href="#"> </a></h3>
+                                        <h3><a href="#"> </a></h3>
                                        <td class="cart-item-cell cart-item-title">                                                               
                                        {{ item.design.name }}                                  
                                     </td>
@@ -140,9 +140,9 @@
                                 <div class="ws-shop-viewcart pull-left">
                                     <a onclick="location.href='{% url 'cart' %}';" class="btn btn-sm">View Cart</a>    
                                 </div>
-                                <div class="ws-shop-checkout pull-right">
+                                <!--<div class="ws-shop-checkout pull-right">
                                     <a onclick="location.href='{% url 'checkout' %}';" class="btn btn-sm">Checkout</a>   
-                                </div>
+                                </div>-->
                             </div>                    
                         </div>
                     </div>    
@@ -153,7 +153,7 @@
         </div>
     </div> 
     <!-- Top Bar End -->
-{% endcomment %} 
+
 
     <!-- Header Start -->
     <header class="ws-header ws-header-transparent">                                    
@@ -162,7 +162,7 @@
         <nav class="navbar ws-navbar navbar-default">
             <div class="container">                
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" ia-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -170,42 +170,51 @@
                     </button>                    
                 </div>
 
-                
-                      <div class="logo ws-center">  
-                        <h2> Mailo Power <h2>
-                      </div>      
+                <!-- Logo -->        
+                <!--<div class="ws-logo ws-center">
+                <a href="index.html">
+                    <img src="" alt="-Mailo-" class="img-responsive">
+                </a>
+                </div>-->
+                <div class="ws-logo ws-center">
+                    <a href="index.html">
+                        <img src="{% static 'assets/img/logo-white.png'%}" alt="Alternative Text" class="img-responsive">
+                    </a> 
+                   <!-- <h2>       Power <h2>-->
+                </div>      
                        
-                </div>
+            
         
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li class="dropdown">
-                            <a href="/" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn">Home <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/">Home</a></li>                                                                                     
-                            </ul>
-                        </li>
-                        <li><a href="{% url 'blog' %}">Blog</a></li>
-                        <li class="dropdown">
-                            <a href="{% url 'gallery' %}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn">Shop <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{% url 'gallery' %}">Print Store</a></li>
-                                
-                            </ul>
-                        </li>
-                    </ul>
+                <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse" >
+                        <ul class="nav navbar-nav navbar-left">
+                            <li class="dropdown">
+                                <a href="/" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn">Home <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/">Home</a></li>                                                                                     
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'blog' %}">Blog</a></li>
+                            <li class="dropdown">
+                                <a href="{% url 'gallery' %}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn">Shop <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'gallery' %}">Print Store</a></li>
+                                    
+                                </ul>
+                            </li>
+                        </ul>
 
-                    <ul class="nav navbar-nav navbar-right">                            
-                        
-                        {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}"></i> Profile</a></li>
-                        <li><a href="{% url 'logout' %}"></i> Log Out</a></li>
-                         {%  else %}
-                        <li><a href="{% url 'register' %}"></i> Register</a></li>
-                        <li><a href="{% url 'login' %}"></i> Log In</a></li>
-                         {% endif %}   
-                                          
-                    </ul> 
+                        <ul class="nav navbar-nav navbar-right">                            
+                            
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'profile' %}"></i> Profile</a></li>
+                            <li><a href="{% url 'logout' %}"></i> Log Out</a></li>
+                            {%  else %}
+                            <li><a href="{% url 'register' %}"></i> Register</a></li>
+                            <li><a href="{% url 'login' %}"></i> Log In</a></li>
+                            {% endif %}   
+                                        
+                        </ul> 
+                    </div>
                 </div>
             </div>
         </nav> 
@@ -307,6 +316,7 @@
     <script src="{% static 'assets/js/main.js'%}"></script>
     
     
+
 
 
 </html>
