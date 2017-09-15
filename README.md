@@ -116,4 +116,7 @@ A lot of work was undertaken to insert the relevant code into the template to ge
 ##Testing
 Testing was carried out locally and since deployment. Version control was carried out on Git and copies of the project were kept locally.
 
-
+##Admin Access
+For viewing of the admin panel please use the following credentials
+username: superadmin
+password: openme1234.
